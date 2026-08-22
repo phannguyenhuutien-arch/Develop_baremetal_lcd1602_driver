@@ -20,12 +20,33 @@ public:
 
     void clear();
     void home();
-
+    void cursor();
+    void noCursor();
+    void blink();
+    void noBlink();
+    
     void setCursor(uint8_t col, uint8_t row);
 
-    void print(const char *text);
-    void print(char c);
+    void createChar(uint8_t location, const uint8_t charmap[]);
+    
+    void display();
+    void noDisplay();
 
+    
+    void print(const char *text);
+    
+    void print(char c);
+    void print(int value);
+    void print(float value);
+    void print(float value, uint8_t decimals);
+    void print(double value);
+    
+    void scrollLeft();
+    void scrollRight();
+    
+    void scrollUp(const char *line1, const char *line2, uint16_t speed);
+    void scrollDown(const char *line1, const char *line2, uint16_t speed);
+    
 private:
     uint8_t _rs;
     uint8_t _en;
